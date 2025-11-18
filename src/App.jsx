@@ -257,6 +257,8 @@ function App() {
     }
   ]);
 
+  const [budgetMode, setBudgetMode] = useState(true);
+
 
   function getProducts() {
 
@@ -268,7 +270,7 @@ function App() {
   useEffect(getProducts, [])
 
   return (
-    <BudgetContext.Provider value={{ name: "Lorenzo" }}>
+    <BudgetContext.Provider value={{ setBudgetMode, budgetMode }}>
       <BrowserRouter>
         <Routes>
           {/* Il route del layout è senza l'attributo to */}

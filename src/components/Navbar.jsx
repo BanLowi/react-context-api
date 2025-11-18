@@ -5,8 +5,8 @@ import BudgetContext from "../context/BudgetContext";
 
 export default function Navbar() {
 
-    const [budgetMode, setBudgetMode] = useState(true);
-    const { name } = useContext(BudgetContext);
+
+    const { setBudgetMode, budgetMode } = useContext(BudgetContext);
 
     return (
         <>
