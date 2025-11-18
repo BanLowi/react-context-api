@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
-import axios from "axios"
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 
 
 export default function Product() {
 
-    const { id } = useParams()
-    const [thisProduct, setThisProduct] = useState({})
+    const { id } = useParams();
+    const [thisProduct, setThisProduct] = useState({});
 
     function fetchProduct() {
 

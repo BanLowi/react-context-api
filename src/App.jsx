@@ -268,18 +268,20 @@ function App() {
   useEffect(getProducts, [])
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Il route del layout è senza l'attributo to */}
-        <Route element={<SiteLayout />}>
-          {/* Alla pagina home va assegnato l'attributo index */}
-          <Route index element={<Homepage />} />
-          <Route path="/products" element={<Products products={products} />} />
-          <Route path="/products/:id" element={<Product />} />
-          <Route path="/about" element={<About />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <BudgetContext.Provider value={{ name: "Lorenzo" }}>
+      <BrowserRouter>
+        <Routes>
+          {/* Il route del layout è senza l'attributo to */}
+          <Route element={<SiteLayout />}>
+            {/* Alla pagina home va assegnato l'attributo index */}
+            <Route index element={<Homepage />} />
+            <Route path="/products" element={<Products products={products} />} />
+            <Route path="/products/:id" element={<Product />} />
+            <Route path="/about" element={<About />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </BudgetContext.Provider>
   )
 }
 
