@@ -3,13 +3,15 @@ import { useContext } from "react";
 import Card from "../components/Card";
 
 import BudgetContext from "../context/BudgetContext";
+import ProductsContext from "../context/ProductsContext";
 
-export default function Products({ products }) {
+export default function Products() {
 
     /*
     log di products quando entro in products
     console.log(products); */
 
+    const { products } = useContext(ProductsContext);
     const { budgetMode } = useContext(BudgetContext);
     const filteredProducts = products.filter(product => product.price <= 30);
 

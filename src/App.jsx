@@ -9,13 +9,13 @@ import Product from "./pages/Product";
 import About from "./pages/About";
 
 import BudgetContext from "./context/BudgetContext";
+import ProductsContext from "./context/ProductsContext";
 
 const productsURL = "https://fakestoreapi.com/products";
 
 function App() {
-  /* RIMUOVERE L'ARRAY STATICO QUANDO L'API TORNA ONLINE */
-  const [products, setProducts] = useState([]);
 
+  const [products, setProducts] = useState([]);
   const [budgetMode, setBudgetMode] = useState(false);
 
 
@@ -29,20 +29,22 @@ function App() {
   useEffect(getProducts, [])
 
   return (
-    <BudgetContext.Provider value={{ setBudgetMode, budgetMode }}>
-      <BrowserRouter>
-        <Routes>
-          {/* Il route del layout è senza l'attributo to */}
-          <Route element={<SiteLayout />}>
-            {/* Alla pagina home va assegnato l'attributo index */}
-            <Route index element={<Homepage />} />
-            <Route path="/products" element={<Products products={products} />} />
-            <Route path="/products/:id" element={<Product />} />
-            <Route path="/about" element={<About />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </BudgetContext.Provider>
+    <ProductsContext.Provider value={{ products, setProducts }}>
+      <BudgetContext.Provider value={{ setBudgetMode, budgetMode }}>
+        <BrowserRouter>
+          <Routes>
+            {/* Il route del layout è senza l'attributo to */}
+            <Route element={<SiteLayout />}>
+              {/* Alla pagina home va assegnato l'attributo index */}
+              <Route index element={<Homepage />} />
+              <Route path="/products" element={<Products products={products} />} />
+              <Route path="/products/:id" element={<Product />} />
+              <Route path="/about" element={<About />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </BudgetContext.Provider>
+    </ProductsContext.Provider>
   )
 }
 
