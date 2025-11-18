@@ -21,7 +21,7 @@ export default function Navbar() {
                             <NavLink to="/products" className="nav-link">Prodotti</NavLink>
                         </div>
                     </div>
-                    <button className="btn btn-primary" onClick={() => budgetMode === false ? setBudgetMode(true) : setBudgetMode(false)}>BudgetMode</button>
+                    <button className="btn btn-primary" onClick={() => setBudgetMode(!budgetMode)}>BudgetMode</button>
                 </div>
             </nav>
 
