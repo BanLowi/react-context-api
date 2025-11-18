@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 
-import BudgetContext from "../context/BudgetContext";
 
 export default function Card({ products }) {
-
-    const { budgetMode } = useContext(BudgetContext);
 
     return (
 
